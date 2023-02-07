@@ -1,0 +1,314 @@
+@import "vendor/normalize";
+
+@import "global/reboot";
+@import "global/utils";
+
+body {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s ease 0;
+
+  &.loaded {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: #050505;
+  display: flex;
+  align-items: center;
+  z-index: 99;
+
+  &__logo {
+    height: auto;
+
+    @media only screen and (min-width: 576px) {
+      width: 7.81vh;
+    }
+
+    @media only screen and (max-width: 575px) {
+      width: 11vh;
+    }
+  }
+
+  @media only screen and (min-width: 576px) {
+    height: 5.85vh;
+    padding: 1.3vh 2.92vh 1vh;
+  }
+
+  @media only screen and (max-width: 575px) {
+    height: 7vh;
+    padding: 0.5vh 4vh 0;
+  }
+}
+
+.main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 59;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+
+    @media only screen and (min-width: 576px) {
+      background-image: url("../img/bg-els.svg");
+    }
+
+    @media only screen and (max-width: 575px) {
+      background-image: url("../img/bg-els-mob.svg");
+    }
+  }
+
+  @media only screen and (min-width: 576px) {
+    height: 100vh;
+    padding: 2vh 0;
+    background-image: url("../img/bg.jpg");
+  }
+
+  @media only screen and (max-width: 575px) {
+    height: 100%;
+    padding-top: 5vh;
+    background-image: url("../img/bg-mob.jpg");
+  }
+}
+
+.phone {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #000000;
+  border: 0.08rem solid #fcb52c;
+  box-shadow: 0px 31.0526px 74.5262px rgba(0, 0, 0, 0.3);
+
+  @media only screen and (min-width: 576px) {
+    width: 32.71vh;
+    height: 70.89vh;
+    border-radius: 5.07vh;
+    padding: 5.85vh 2.44vh 9.76vh;
+    margin-bottom: 2.53vh;
+  }
+
+  @media only screen and (max-width: 575px) {
+    width: 36vh;
+    height: 70vh;
+    border-radius: 5.45vh;
+    padding: 6.35vh 1vh;
+    margin-bottom: 2.46vh;
+  }
+
+  &__logo {
+    height: auto;
+    opacity: 0.6;
+    margin-bottom: 2vh;
+
+    @media only screen and (min-width: 576px) {
+      width: 16.11vh;
+    }
+
+    @media only screen and (max-width: 575px) {
+      width: 17.25vh;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__btn {
+    background: #fcb52c;
+    width: auto;
+    height: auto;
+    border: none;
+    color: #1b1b1b;
+    font-weight: 700;
+    animation: puls 0.6s ease infinite alternate;
+    transition-property: background-color, color;
+    transition-timing-function: ease;
+    transition-duration: 0.1s;
+    transition-duration: 0.1s;
+
+    @media only screen and (min-width: 576px) {
+      border-radius: 1.46vh;
+      padding: 2.14vh 4.29vh 2.05vh;
+      font-size: 2.14vh;
+      margin-bottom: 5.85vh;
+    }
+
+    @media only screen and (max-width: 575px) {
+      border-radius: 1.76vh;
+      padding: 2.64vh 5.28vh;
+      font-size: 2.64vh;
+      margin-bottom: 6vh;
+    }
+
+    @media (hover: hover) {
+      cursor: pointer;
+      transition-duration: 0.3s;
+
+      &:hover {
+        background-color: #7c0000;
+        color: #fff;
+        animation-play-state: paused;
+      }
+    }
+
+    &:active {
+      background-color: #7c0000;
+      color: #fff;
+      animation-play-state: paused;
+    }
+  }
+
+  &__android {
+    height: auto;
+
+    @media only screen and (min-width: 576px) {
+      width: 4.88vh;
+      margin-bottom: 4.1vh;
+    }
+
+    @media only screen and (max-width: 575px) {
+      width: 4.92vh;
+      margin-bottom: 2.11vh;
+    }
+  }
+
+  &__descr {
+  }
+
+  &__text {
+    text-align: center;
+    color: #ffffff;
+    line-height: 1.2;
+
+    @media only screen and (min-width: 576px) {
+      font-size: 1.36vh;
+
+      &:first-of-type {
+        margin-bottom: 1.36vh;
+      }
+    }
+
+    @media only screen and (max-width: 575px) {
+      font-size: 1.58vh;
+
+      &:first-of-type {
+        margin-bottom: 1.58vh;
+      }
+    }
+  }
+}
+
+.back {
+  background-color: #211f1e;
+  transition-property: background-color;
+  transition-timing-function: ease;
+  transition-duration: 0.1s;
+
+  @media only screen and (min-width: 576px) {
+    border-radius: 1.17vh;
+    padding: 1.36vh 2.53vh;
+  }
+
+  @media only screen and (max-width: 575px) {
+    border-radius: 1.76vh;
+    padding: 1.76vh 3.16vh;
+  }
+
+  &__text {
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: #ffffff;
+
+    display: flex;
+
+    &::before {
+      content: "";
+      background-image: url("../img/arrow.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      @media only screen and (min-width: 576px) {
+        width: 0.48vh;
+        height: 0.78vh;
+        margin-right: 0.78vh;
+        transform: scale(1.1) translateY(0.15vh);
+      }
+
+      @media only screen and (max-width: 575px) {
+        width: 0.7vh;
+        height: 1.05vh;
+        margin-right: 1vh;
+        transform: scale(1.1) translateY(0.4vh);
+      }
+    }
+
+    @media only screen and (min-width: 576px) {
+      font-size: 1.07vh;
+    }
+
+    @media only screen and (max-width: 575px) {
+      font-size: 1.58vh;
+    }
+  }
+
+  @media (hover: hover) {
+    cursor: pointer;
+    transition-duration: 0.3s;
+
+    &:hover {
+      background-color: #7c0000;
+    }
+  }
+
+  &:active {
+    background-color: #7c0000;
+  }
+}
+
+@keyframes puls {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
